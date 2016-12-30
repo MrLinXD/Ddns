@@ -87,7 +87,7 @@ public class HttpRequest {
 			// Set the advance attribute URL
 			conn.setRequestProperty("accept", "*/*");
 			conn.setRequestProperty("connection", "Keep-Alive");
-			conn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+			conn.setRequestProperty("user-agent", "Axoford12 DDNS/0.1 (postmaster@axoford12.cc)");
 			// Must us set this :
 			conn.setDoOutput(true);
 			conn.setDoInput(true);
