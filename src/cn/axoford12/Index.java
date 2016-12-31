@@ -5,7 +5,7 @@ public class Index {
 
 	public static void main(String[] args) {
 
-		Ip i = new Ip();
-		System.out.println(i.isChanged());
+		Changer cgr = new Changer();
+		System.out.println(cgr.change());
 	}
 }

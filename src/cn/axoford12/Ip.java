@@ -1,13 +1,11 @@
 package cn.axoford12;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Ip {
-	private String IPDomain;
-	private String correctIp;
+	protected String IPDomain;
+	protected String correctIp;
 	
 	// Construction.
 	public Ip(){
@@ -15,15 +13,16 @@ public class Ip {
 		this.correctIp = this.getMyIP();
 	}
 	private String getDomainIP(String domainName) {
-		InetAddress address = null;
-		try {
-			address = InetAddress.getByName(domainName);
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("Get IP Failed Please try to check your network connection.");
-		}
-		return address.getHostAddress().toString();
+		HttpRequest reqter = new HttpRequest();
+		String re = reqter.send("POST", "https://dnsapi.cn/Record.Info",
+				"login_token="+Config.c.login_token
+				+"&record_id="+Config.c.record_id
+				+"&domain="+Config.c.domain);
+        Pattern p = Pattern.compile("value>(.+?)</value");
+        
+        Matcher m = p.matcher(re);
+        m.find();
+        return m.group(1);
 	}
 	private String getMyIP() {  
         HttpRequest requester = new HttpRequest();

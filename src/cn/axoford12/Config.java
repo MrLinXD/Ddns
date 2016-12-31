@@ -9,11 +9,14 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Config {
+	public static Config c = new Config();
 	// defined login_token.
-	private String login_token;
+	protected String login_token;
 	// defined domain.
-	private String domain;
+	protected String domain;
 	// Construction
+	protected String record_id;
+	protected String sub_domain;
 	public Config(){
 		File f= new File("./config.so");
 		try {
@@ -31,6 +34,8 @@ public class Config {
 			// load login_token and domain with file.
 			this.login_token = p.getProperty("login_token");
 			this.domain = p.getProperty("domain");
+			this.record_id = p.getProperty("record_id");
+			this.sub_domain = p.getProperty("sub_domain");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,7 +45,11 @@ public class Config {
 		}
 	}
 	protected String getParams(){
-		return "login_token="+this.login_token+"&"+"format=json"+"&domain="+this.domain;
+		return "login_token="+this.login_token
+				+"&domain="+this.domain
+				+"&sub_domain="+this.sub_domain
+				+"&record_line_id=0"
+				+"&record_id="+this.record_id;
 	}
 
 }
