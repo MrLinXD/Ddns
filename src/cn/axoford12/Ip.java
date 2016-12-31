@@ -32,7 +32,7 @@ public class Ip {
         return m.group(1);
 	}
 	private String getMyIP() throws InvalidMethodNameException {  
-        String re = HttpRequest.getReqter().send("POST", "http://1212.ip138.com/ic.asp", "");
+        String re = HttpRequest.getReqter().send("GET", "http://1212.ip138.com/ic.asp", "");
         Pattern p = Pattern.compile("\\[(.+?)\\]");
         
         Matcher m = p.matcher(re);

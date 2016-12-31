@@ -6,8 +6,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.List;
-import java.util.Map;
 
 import exceptions.InvalidMethodNameException;
 
@@ -73,11 +71,11 @@ public class HttpRequest {
 			// Set up a connect
 			connection.connect();
 			// Get ALL header Fields using Map
-			Map<String, List<String>> map = connection.getHeaderFields();
+//			Map<String, List<String>> map = connection.getHeaderFields();
 			// For .. All Fields.
-			for (String key : map.keySet()) {
-				System.out.println(key + "--->" + map.get(key));
-			}
+//			for (String key : map.keySet()) {
+//				System.out.println(key + "--->" + map.get(key));
+//			}
 			// Defend BufferdReader Stream to read the response of url
 			in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String line;
@@ -114,7 +112,7 @@ public class HttpRequest {
 			// Set the advance attribute URL
 			conn.setRequestProperty("accept", "*/*");
 			conn.setRequestProperty("connection", "Keep-Alive");
-			conn.setRequestProperty("user-agent", "Axoford12 DDNS/0.1 (postmaster@axoford12.cc)");
+			conn.setRequestProperty("user-agent", "Axoford12 DDNS/1.1 (postmaster@axoford12.cc)");
 			// Must us set this :
 			conn.setDoOutput(true);
 			conn.setDoInput(true);
