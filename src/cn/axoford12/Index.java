@@ -13,7 +13,7 @@ public class Index {
 		Changer cgr = new Changer();
 		try {
 			// Print result.
-			System.out.println(cgr.change());
+			cgr.change();
 		} catch (InvalidMethodNameException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
