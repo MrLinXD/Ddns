@@ -9,19 +9,46 @@ import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 
+import exceptions.InvalidMethodNameException;
+
 /**
  * @author Axoford12
+ * @version 1.01
  */
 public class HttpRequest {
 
-	public String send(String method,String url,String param){
+	private static HttpRequest reqter = new HttpRequest();
+	
+	public static HttpRequest getReqter() {
+		return reqter;
+	}
+	/**
+	 * 
+	 * @param method
+	 * Method like "POST" or "GET"
+	 * Please Caution : You can only give String "POST" or "GET" in.
+	 * If you give other String(s) in ,it will throw a exception
+	 * exceptions like : InvalidMethodNameException 
+	 * @param url
+	 * A address you want send to 
+	 * You must give a correct address in like "https://www.axoford12.cn" 
+	 * @param param
+	 * The parameter(s) that you want send to
+	 * Form like "token=8axd&key=11"
+	 * You must set parameter like with "&" to form into a String
+	 * @return
+	 * The result.
+	 * @throws InvalidMethodNameException
+	 * if you give a Invalid Method name it will thows this exception. 
+	 */
+	public String send(String method,String url,String param) throws InvalidMethodNameException{
 		String result;
 		if(method == "GET"){
 			result = this.sendGet(url, param);
 		}else if(method == "POST"){
 			result = this.sendPost(url, param);
 		}else{
-			result = "Error";
+			throw new InvalidMethodNameException("Give a wrong method name in:"+method);
 		}
 		return result;
 	}
