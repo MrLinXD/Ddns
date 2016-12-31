@@ -9,7 +9,10 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Config {
+	// defined login_token.
 	private String login_token;
+	// defined domain.
+	private String domain;
 	// Construction
 	public Config(){
 		File f= new File("./config.so");
@@ -22,9 +25,12 @@ public class Config {
 		Properties p = new Properties();
 	
 		try {
+			// Open InputStream named "a"
 			InputStream a= new BufferedInputStream(new FileInputStream(f));
 			p.load(a);
+			// load login_token and domain with file.
 			this.login_token = p.getProperty("login_token");
+			this.domain = p.getProperty("domain");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,7 +40,7 @@ public class Config {
 		}
 	}
 	protected String getParams(){
-		return "login_token="+this.login_token+"&"+"format=json";
+		return "login_token="+this.login_token+"&"+"format=json"+"&domain="+this.domain;
 	}
 
 }
