@@ -37,7 +37,7 @@ public class HttpRequest {
 	 * @return
 	 * The result.
 	 * @throws InvalidMethodNameException
-	 * if you give a Invalid Method name it will thows this exception. 
+	 * if you give a Invalid Method name it will throw this exception. 
 	 */
 	public String send(String method,String url,String param) throws InvalidMethodNameException{
 		String result;
