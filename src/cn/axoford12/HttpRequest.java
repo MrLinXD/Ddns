@@ -86,7 +86,6 @@ public class HttpRequest {
 			System.out.println("There is (an) exception of sending URL.");
 			System.out.println("Print Exception: ");
 			System.out.println(e);
-			e.printStackTrace();
 		}
 		// Finally close Stream
 		finally {
@@ -131,7 +130,6 @@ public class HttpRequest {
 			}
 		} catch (Exception e) {
 			System.out.println("Exception(s):" + e);
-			e.printStackTrace();
 		}
 		// Use finally close streams.
 		finally {
@@ -143,7 +141,7 @@ public class HttpRequest {
 					in.close();
 				}
 			} catch (IOException ex) {
-				ex.printStackTrace();
+				System.out.println("Please check your file name or connection");
 			}
 		}
 		return result;
