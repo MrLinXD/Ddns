@@ -7,7 +7,7 @@ public class RunningThread implements Runnable {
 		// TODO Auto-generated method stub
 		while(true){
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(300000);
 				Index.Runner();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
